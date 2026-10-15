@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Big Dumb Button</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      display: grid;
+      place-items: center;
+      background: #24152f;
+      color: #fff7fc;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+    }
+
+    main {
+      max-width: 420px;
+    }
+
+    h1 {
+      color: #ffb7e2;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    #quote {
+      min-height: 130px;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      margin: 28px 0;
+    }
+
+    button {
+      width: min(78vw, 300px);
+      aspect-ratio: 1;
+      border: 8px solid #ffd6ef;
+      border-radius: 50%;
+      background: #ff55b7;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 900;
+      box-shadow: 0 12px 0 #a92775, 0 18px 35px #100a18aa;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    button:active {
+      transform: translateY(8px);
+      box-shadow: 0 4px 0 #a92775;
+    }
+
+    .hint {
+      margin-top: 28px;
+      color: #d7c4df;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>BIG DUMB BUTTON</h1>
+    <p>Press for a little Gospel truth.</p>
+
+    <div id="quote" aria-live="polite">
+      A message will appear here.
+    </div>
+
+    <button id="bigButton">PRESS ME</button>
+
+    <p class="hint">A tiny reminder, straight from the Gospels.</p>
+  </main>
+
+  <script>
+    const affirmations = [
+      "Come unto me, all ye that labour and are heavy laden, and I will give you rest. — Matthew 11:28",
+      "With men this is impossible; but with God all things are possible. — Matthew 19:26",
+      "Lo, I am with you always, even unto the end of the world. — Matthew 28:20",
+      "If thou canst believe, all things are possible to him that believeth. — Mark 9:23",
+      "For with God nothing shall be impossible. — Luke 1:37",
+      "Fear not, little flock; for it is your Father's good pleasure to give you the kingdom. — Luke 12:32",
+      "I am the light of the world. — John 8:12",
+      "Ye shall know the truth, and the truth shall make you free. — John 8:32",
+      "I am come that they might have life, and that they might have it more abundantly. — John 10:10",
+      "Let not your heart be troubled: ye believe in God, believe also in me. — John 14:1",
+      "Peace I leave with you, my peace I give unto you. — John 14:27",
+      "Be of good cheer; I have overcome the world. — John 16:33"
+    ].slice(0, 50);
+
+    let previousIndex = -1;
+
+    document.getElementById("bigButton").addEventListener("click", () => {
+      let nextIndex = Math.floor(Math.random() * affirmations.length);
+
+      // Avoid showing the same verse twice in a row.
+      while (affirmations.length > 1 && nextIndex === previousIndex) {
+        nextIndex = Math.floor(Math.random() * affirmations.length);
+      }
+
+      previousIndex = nextIndex;
+      document.getElementById("quote").textContent =
+        affirmations[nextIndex];
+    });
+  </script>
+</body>
+</html>
