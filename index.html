@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Big Dumb Button</title>
+  <title>IMK00L</title>
 
   <style>
     * {
@@ -28,12 +28,13 @@
 
     h1 {
       color: #ffb7e2;
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 8px;
+      letter-spacing: 0.08em;
     }
 
     #quote {
-      min-height: 130px;
+      min-height: 150px;
       display: grid;
       place-items: center;
       font-size: 1.4rem;
@@ -70,47 +71,84 @@
 
 <body>
   <main>
-    <h1>BIG DUMB BUTTON</h1>
-    <p>Press for a little Gospel truth.</p>
+    <h1>IMK00L</h1>
+    <p>Your pocket Stoic reminder.</p>
 
     <div id="quote" aria-live="polite">
-      A message will appear here.
+      Press the button for a thought.
     </div>
 
     <button id="bigButton">PRESS ME</button>
 
-    <p class="hint">A tiny reminder, straight from the Gospels.</p>
+    <p class="hint">One moment. One choice. One next step.</p>
   </main>
 
   <script>
-    const affirmations = [
-      "Come unto me, all ye that labour and are heavy laden, and I will give you rest. — Matthew 11:28",
-      "With men this is impossible; but with God all things are possible. — Matthew 19:26",
-      "Lo, I am with you always, even unto the end of the world. — Matthew 28:20",
-      "If thou canst believe, all things are possible to him that believeth. — Mark 9:23",
-      "For with God nothing shall be impossible. — Luke 1:37",
-      "Fear not, little flock; for it is your Father's good pleasure to give you the kingdom. — Luke 12:32",
-      "I am the light of the world. — John 8:12",
-      "Ye shall know the truth, and the truth shall make you free. — John 8:32",
-      "I am come that they might have life, and that they might have it more abundantly. — John 10:10",
-      "Let not your heart be troubled: ye believe in God, believe also in me. — John 14:1",
-      "Peace I leave with you, my peace I give unto you. — John 14:27",
-      "Be of good cheer; I have overcome the world. — John 16:33"
+    const quotes = [
+      "I can’t command every outcome; I can choose my next action.",
+      "My judgment is mine to examine.",
+      "I meet what arrives with attention and courage.",
+      "I don’t have to answer every impulse.",
+      "The obstacle may become the work.",
+      "I return to what is mine to do.",
+      "A hard moment is still a moment.",
+      "I can act with care without controlling how it lands.",
+      "Let wisdom, courage, justice, and restraint guide me.",
+      "I can pause between feeling and action.",
+      "I will spend effort where effort can matter.",
+      "I can release what belongs to chance.",
+      "The present is where I can choose.",
+      "My character travels with me.",
+      "I can be firm and kind at once.",
+      "Someone else’s opinion doesn’t dictate my conduct.",
+      "I can do the next right thing without seeing the whole road.",
+      "I will not turn a setback into a story about my worth.",
+      "I can practice patience without becoming passive.",
+      "I may not choose the weather; I can choose how I meet it.",
+      "I am allowed to begin again right now.",
+      "Let virtue be my goal, not applause.",
+      "I will treat people fairly; their choices are theirs.",
+      "I can ask what is in my control before I worry.",
+      "My attention is precious; I will place it deliberately.",
+      "I can let discomfort be present without obeying it.",
+      "I will meet today fully, one moment at a time.",
+      "Let me respond, not react.",
+      "Peace grows when I stop demanding that reality follow my script.",
+      "Even small acts can express strong character.",
+      "I can carry disappointment without becoming it.",
+      "I can be grateful for the chance to practice.",
+      "I have this hour to use; let me use it well.",
+      "I can welcome correction as information.",
+      "I will measure progress by how I live, not how I look.",
+      "I can uphold my values without controlling another person.",
+      "When the plan changes, my values can still guide me.",
+      "Calm is a practice, not a prize.",
+      "I can make room for grief and still choose the next step.",
+      "I will use what I have, where I am, with care.",
+      "There is strength in restraint and courage in action.",
+      "I can listen fully without surrendering my judgment.",
+      "I can practice patience while keeping healthy boundaries.",
+      "I will not borrow trouble from tomorrow.",
+      "I can take responsibility without condemning myself.",
+      "The way forward starts with the action available now.",
+      "I can be generous without needing to be praised.",
+      "I am part of a wider human community.",
+      "I can return my attention to the task before me.",
+      "Let me do the next thing with honesty, courage, and care."
     ].slice(0, 50);
 
     let previousIndex = -1;
 
     document.getElementById("bigButton").addEventListener("click", () => {
-      let nextIndex = Math.floor(Math.random() * affirmations.length);
+      let nextIndex = Math.floor(Math.random() * quotes.length);
 
-      // Avoid showing the same verse twice in a row.
-      while (affirmations.length > 1 && nextIndex === previousIndex) {
-        nextIndex = Math.floor(Math.random() * affirmations.length);
+      // Avoid showing the same reminder twice in a row.
+      while (quotes.length > 1 && nextIndex === previousIndex) {
+        nextIndex = Math.floor(Math.random() * quotes.length);
       }
 
       previousIndex = nextIndex;
-      document.getElementById("quote").textContent =
-        affirmations[nextIndex];
+      document.getElementById("quote").textContent = quotes[nextIndex];
     });
   </script>
 </body>
